@@ -3,25 +3,25 @@ import React from 'react'
 const FilterTasks = () => {
     return (
 
-        <div id='filters'>
-            <div className="input-filter">
-                <input 
-                    className="input-cratetask" 
-                    type="text" 
+        <div className='flex flex-col items-center py-4 ' >
+            <div >
+                <input
+                    className='rounded-lg m-2 pl-2'
+                    type="text"
                     placeholder="filter your tasks" />
             </div>
-            <div className='finished-unfinished'>
+            <div className='space-x-3'>
                 <label id='label-finished'>
-                    <input 
-                        type="checkbox" 
-                        id="Finished" 
+                    <input className='mr-2'
+                        type="checkbox"
+                        id="Finished"
                         value="Finished" />
                     Finished
                 </label>
                 <label>
-                    <input 
-                        type="checkbox" 
-                        id="Unfinished" 
+                    <input className='mr-2'
+                        type="checkbox"
+                        id="Unfinished"
                         value="Unfinished" />
                     Unfinished
                 </label>
