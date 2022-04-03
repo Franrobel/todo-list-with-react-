@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+<h3>Simple to do list app </h3>
+<h4>using React and tailwind for the styles</h4>
+
+
+<hr>
+Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
