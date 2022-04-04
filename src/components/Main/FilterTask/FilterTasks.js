@@ -1,6 +1,8 @@
 import React from 'react'
+// import { listTaskContext } from '../../../Context/ListTasks-Context'
 
 const FilterTasks = () => {
+    // const [[listTask, setListTask], [task, setTask]] = useContext(listTaskContext)
     return (
 
         <div className='flex flex-col items-center py-4 ' >
@@ -27,7 +29,6 @@ const FilterTasks = () => {
                 </label>
             </div>
         </div>
-
     )
 }
 

@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './CreateTask.css'
 import ListOfTasks from '../ListOfTasks/ListOfTasks'
+import { listTaskContext } from '../../../Context/ListTasks-Context'
 
-const CreateTask = (props) => {
+const CreateTask = () => {
+
+    const [[listTask, setListTask], [task, setTask]] = useContext(listTaskContext)
 
     function handleChange(event) {
         const { name, value } = event.target
-        props.setTask({
-            ...props.task,
+        setTask({
+            ...task,
             [name]: value
         })
     }
 
     function addTask() {
-        props.setListTask(prevList =>
-            [...prevList, props.task].filter(task => task.title !== "")
+        setListTask(prevList =>
+            [...prevList, task].filter(task => task.title !== "")
         )
     }
 
@@ -26,17 +29,14 @@ const CreateTask = (props) => {
                     type="text"
                     placeholder="create a task"
                     name="title"
-                    value={props.task.title}
+                    value={task.title}
                     onChange={handleChange}
                 />
                 <button className="bg-redWine text-aliceblue px-1.5 py-1 text-sm rounded-md" onClick={addTask}>
                     Create
                 </button>
             </div>
-            <ListOfTasks
-                listTask={props.listTask}
-                setListTask={props.setListTask}
-            />
+            <ListOfTasks />
         </>
     )
 }

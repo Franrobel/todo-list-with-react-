@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { listTaskContext } from '../../../Context/ListTasks-Context';
 
-const ListOfTasks = (props) => {
+const ListOfTasks = () => {
+
+    const [[listTask, setListTask]] = useContext(listTaskContext)
 
     function removeTask(iItem) {
-        props.setListTask((prevList) =>
+        setListTask((prevList) =>
             prevList.filter((task, i) => i !== iItem));
     }
 
     return (
         <ul className='ul-list'>
-            {props.listTask.map((task, i) =>
+            {listTask.map((task, i) =>
                 <li key={i} >
                     <input type='checkbox' />
                     <p>{task.title}</p>
