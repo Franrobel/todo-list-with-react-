@@ -2,7 +2,7 @@ import React from 'react'
 import './CreateTask.css'
 
 const CreateTask = (props) => {
-    const [noTask, setNoTask] = React.useState("You didn't add a task")
+    
     function handleChange(event) {
         const { name, value } = event.target
         props.setTask({
@@ -12,12 +12,16 @@ const CreateTask = (props) => {
     }
 
     function addTask() {
-        console.log(props.listTask)
-        props.setListTask(prevList => 
-            [...prevList, props.task].filter(task=> task.title !== "")
-            )
-           
-     }
+        props.setListTask(prevList =>
+            [...prevList, props.task].filter(task => task.title !== "")
+        )
+    }
+
+    function removeTask(iItem) {
+        props.setListTask((prevList) =>
+            prevList.filter((task, i) => i !== iItem));
+    }
+    
     return (
         <>
             <div className="flex justify-center">
@@ -34,23 +38,14 @@ const CreateTask = (props) => {
                 </button>
             </div>
             <ul className='ul-list'>
-                {props.listTask.map((task, i) => 
-                    // if (task.title === "") {
-                    //     return <li>{noTask}</li>
-                    // } else {
-                    //     return 
-                        <li key={i}>
-                            <input type='checkbox' />
-                            <p>{task.title}</p>
-                            <button className='button-cratetask' type='button'>Remove</button>
-                        </li>
-                    
-                )
-                }
+                {props.listTask.map((task, i) =>
+                    <li key={i} >
+                        <input type='checkbox' />
+                        <p>{task.title}</p>
+                        <button className='button-cratetask' onClick={() => removeTask(i)}>Remove</button>
+                    </li>)}
             </ul>
         </>
-
-
     )
 }
 
