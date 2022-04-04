@@ -1,8 +1,9 @@
 import React from 'react'
 import './CreateTask.css'
+import ListOfTasks from '../ListOfTasks/ListOfTasks'
 
 const CreateTask = (props) => {
-    
+
     function handleChange(event) {
         const { name, value } = event.target
         props.setTask({
@@ -17,11 +18,6 @@ const CreateTask = (props) => {
         )
     }
 
-    function removeTask(iItem) {
-        props.setListTask((prevList) =>
-            prevList.filter((task, i) => i !== iItem));
-    }
-    
     return (
         <>
             <div className="flex justify-center">
@@ -37,14 +33,10 @@ const CreateTask = (props) => {
                     Create
                 </button>
             </div>
-            <ul className='ul-list'>
-                {props.listTask.map((task, i) =>
-                    <li key={i} >
-                        <input type='checkbox' />
-                        <p>{task.title}</p>
-                        <button className='button-cratetask' onClick={() => removeTask(i)}>Remove</button>
-                    </li>)}
-            </ul>
+            <ListOfTasks
+                listTask={props.listTask}
+                setListTask={props.setListTask}
+            />
         </>
     )
 }
