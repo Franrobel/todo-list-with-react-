@@ -16,9 +16,14 @@ const CreateTask = () => {
     }
 
     function addTask() {
-        setListTask(prevList =>
-            [...prevList, task].filter(task => task.title !== "")
-        )
+        setListTask(prevList => {
+            if (task.title === "") {
+                return [...prevList, task]
+            } else {
+                return [...prevList, task]
+                    .filter(task => task.title !== "")
+            }
+        })
     }
 
     return (
