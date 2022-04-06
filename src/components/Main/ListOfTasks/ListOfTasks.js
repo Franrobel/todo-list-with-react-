@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { listTaskContext } from '../../../Context/ListTasks-Context';
+import './ListOfTasks.css'
 
 const ListOfTasks = () => {
 

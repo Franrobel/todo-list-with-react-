@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import './CreateTask.css'
 import ListOfTasks from '../ListOfTasks/ListOfTasks'
 import { listTaskContext } from '../../../Context/ListTasks-Context'
 
