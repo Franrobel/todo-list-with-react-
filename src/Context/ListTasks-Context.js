@@ -10,8 +10,14 @@ export const ListTasksProvider = (props) => {
         completed: false
     })
 
+    const [filter, setFilter] = useState({
+        searchTitle: "",
+        finished: false,
+        unFinished: false
+    })
+
     return (
-        <listTaskContext.Provider value={[[listTask, setListTask], [task, setTask]]}>
+        <listTaskContext.Provider value={[[listTask, setListTask], [task, setTask], [filter, setFilter] ]}>
             {props.children}
         </listTaskContext.Provider>
     );

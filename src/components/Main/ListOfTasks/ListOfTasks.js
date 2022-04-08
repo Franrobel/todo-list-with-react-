@@ -4,13 +4,13 @@ import './ListOfTasks.css'
 
 const ListOfTasks = () => {
 
-    const [[listTask, setListTask]] = useContext(listTaskContext)
+    const [[listTask, setListTask], [filter, setFilter] ] = useContext(listTaskContext)
 
     function removeTask(iItem) {
         setListTask((prevList) =>
             prevList.filter((task, i) => i !== iItem));
     }
-    console.log(listTask)
+   
     return (
         <ul className='ul-list'>
             {listTask.map((task, i) => {

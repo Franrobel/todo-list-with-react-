@@ -19,8 +19,7 @@ const CreateTask = () => {
             if (task.title === "") {
                 return [...prevList, task]
             } else {
-                return [...prevList, task]
-                    .filter(task => task.title !== "")
+                return [...prevList, task].filter(task => task.title !== "")
             }
         })
     }
