@@ -3,16 +3,16 @@ import { listTaskContext } from '../../../Context/ListTasks-Context'
 
 const FilterTasks = () => {
     const [[listTask, setListTask], [task, setTask], [filter, setFilter]] = useContext(listTaskContext)
-   
-function handleFilter(event){
-    const {name, value} =event.target
-    setFilter({ [name]: value,
-    finished: false,
-    unFinished: false})
 
-    
-}
-    console.log(filter)
+    function handleFilter(e) {
+        const { name, value } = e.target
+
+        setFilter({
+            [name]: value,
+            finished: false,
+            unFinished: false
+        })
+    }
 
     return (
 
@@ -24,7 +24,7 @@ function handleFilter(event){
                     name='searchTitle'
                     value={filter.searchTitle}
                     placeholder="filter your tasks"
-                    onChange={(event)=>handleFilter(event)}
+                    onChange={(e) => handleFilter(e)}
                 />
             </div>
             <div className='space-x-3'>
