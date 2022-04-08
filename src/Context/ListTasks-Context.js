@@ -17,7 +17,7 @@ export const ListTasksProvider = (props) => {
     })
 
     return (
-        <listTaskContext.Provider value={[[listTask, setListTask], [task, setTask], [filter, setFilter] ]}>
+        <listTaskContext.Provider value={[[listTask, setListTask], [task, setTask], [filter, setFilter]]}>
             {props.children}
         </listTaskContext.Provider>
     );
