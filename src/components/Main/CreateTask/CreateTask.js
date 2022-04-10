@@ -5,7 +5,6 @@ import { listTaskContext } from '../../../Context/ListTasks-Context'
 const CreateTask = () => {
 
     const [[listTask, setListTask], [task, setTask]] = useContext(listTaskContext)
-
     function handleChange(event) {
         const { name, value } = event.target
         setTask({
@@ -44,4 +43,4 @@ const CreateTask = () => {
     )
 }
 
-export default CreateTask
+export default CreateTask;

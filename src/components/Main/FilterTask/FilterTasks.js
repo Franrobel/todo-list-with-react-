@@ -1,21 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { listTaskContext } from '../../../Context/ListTasks-Context'
 
 const FilterTasks = () => {
     const [[listTask, setListTask], [task, setTask], [filter, setFilter]] = useContext(listTaskContext)
 
     function handleFilter(e) {
-        const { name, value } = e.target
+        const { name, value, checked, type } = e.target
 
         setFilter({
-            [name]: value,
-            finished: false,
-            unFinished: false
+            [name]: type === "checkbox" ? checked : value
         })
     }
-
+console.log(filter)
     return (
-
         <div className='flex flex-col items-center py-4 ' >
             <div >
                 <input
@@ -31,18 +28,20 @@ const FilterTasks = () => {
                 <label id='label-finished'>
                     <input className='mr-2'
                         type="checkbox"
-                        id="completed"
-                        name='completed'
+                        id="finished"
+                        name='finished'
                         checked={filter.finished}
+                        onChange={(e) => handleFilter(e)}
                     />
                     Finished
                 </label>
                 <label>
                     <input className='mr-2'
                         type="checkbox"
-                        id="completed"
-                        name='completed'
+                        id="unFinished"
+                        name='unFinished'
                         checked={filter.unFinished}
+                        onChange={(e) => handleFilter(e)}
                     />
                     Unfinished
                 </label>
