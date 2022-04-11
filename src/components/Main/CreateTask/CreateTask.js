@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import ListOfTasks from '../ListOfTasks/ListOfTasks'
 import { listTaskContext } from '../../../Context/ListTasks-Context'
 
@@ -22,7 +22,10 @@ const CreateTask = () => {
             }
         })
     }
-
+    
+useEffect(()=> {
+    localStorage.setItem("tasks", JSON.stringify(listTask))
+}, [listTask])
     return (
         <>
             <div className="flex justify-center">

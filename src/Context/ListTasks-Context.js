@@ -3,7 +3,7 @@ import React, { useState, createContext } from "react";
 export const listTaskContext = createContext();
 
 export const ListTasksProvider = (props) => {
-    const [listTask, setListTask] = useState([])
+    const [listTask, setListTask] = useState(JSON.parse(localStorage.getItem("tasks"))|| [])
 
     const [task, setTask] = useState({
         title: "",
