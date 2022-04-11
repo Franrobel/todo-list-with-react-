@@ -11,7 +11,6 @@ const FilterTasks = () => {
             [name]: type === "checkbox" ? checked : value
         })
     }
-console.log(filter)
     return (
         <div className='flex flex-col items-center py-4 ' >
             <div >
